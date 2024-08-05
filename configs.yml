@@ -1,0 +1,12 @@
+settings:
+  testMode: true
+  testDate: 2024-09-05
+
+sheets:
+  spreadsheetId: 1_N8gxDiZnmjYrLzzx2sBBU-RzC73fixp-6zrpaL_5Sg
+  sheetName: ads
+  loadRange: A2:M
+
+sources:
+  lottomaxURL: https://dsc.alc.ca/api/winning_numbers/latest/LottoMax
+  lotto649URL: https://dsc.alc.ca/api/winning_numbers/latest/Lotto649
