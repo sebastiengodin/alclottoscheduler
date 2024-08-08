@@ -12,10 +12,6 @@ import (
 	"github.com/sebastiengodin/alclottoscheduler/structs"
 )
 
-//"github.com/sebastiengodin/alclottoscheduler/internal/auth"
-
-//"github.com/sebastiengodin/alclottoscheduler/internal/sheets"
-
 func main() {
 
 	//fbapi.GetImageList()
