@@ -4,12 +4,11 @@ import (
 	"log"
 	"os"
 
-	"github.com/sebastiengodin/alclottoscheduler/models"
-
+	"github.com/sebastiengodin/alclottoscheduler/structs"
 	"gopkg.in/yaml.v2"
 )
 
-func GetConfigs(configs *models.Config) {
+func GetConfigs(configs *structs.Config) {
 	//read YAML file
 	data, err := os.ReadFile("configs.yml")
 	if err != nil {

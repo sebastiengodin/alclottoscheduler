@@ -6,10 +6,10 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/sebastiengodin/alclottoscheduler/models"
+	"github.com/sebastiengodin/alclottoscheduler/structs"
 )
 
-func GetFeeds(drawGames *models.DrawGames, args *models.Args, configs *models.Config) {
+func GetFeeds(drawGames *structs.DrawGames, args *structs.Args, configs *structs.Config) {
 	var url string
 
 	if args.Lotto == "LottoMax" {

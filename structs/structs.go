@@ -1,4 +1,4 @@
-package models
+package structs
 
 import (
 	"time"
@@ -25,7 +25,7 @@ type Config struct {
 	}
 }
 
-// Config methods
+// Config functions
 func (c *Config) PostMarshall() error {
 
 	c.Settings.CurrentDate = time.Now().UTC()
@@ -34,22 +34,47 @@ func (c *Config) PostMarshall() error {
 }
 
 type Sheet struct {
-	Lotto                  string
-	Type                   string
-	DayOfDraw              string
-	AdId                   int64
-	PageId                 int64
-	InstagramActorId       int64
-	StartRange             int64
-	EndRange               int64
-	HighJackpotAddedBudget float64
-	PrimaryText            string
-	Headline               string
-	Link                   string
-	ActionType             string
+	Status                 string    //col 0 in sheet
+	Lotto                  string    //col 1
+	Type                   string    //col 2
+	StartDate              time.Time //col 3
+	EndDate                time.Time //col 4
+	DayOfDraw              string    //col 5
+	CampaignId             int64     //col 6
+	AdId                   int64     //col 7
+	PageId                 int64     //col 8
+	InstagramActorId       int64     //col 9
+	StartRange             int64     //col 10
+	EndRange               int64     //col 11
+	HighJackpotAddedBudget float64   //col 12
+	PrimaryText            string    //col 13
+	Headline               string    //col 14
+	Link                   string    //col 15
+	ActionType             string    //col 16
+	MediaSearchPattern     string    //col 17
 }
 
-// add day of the week with a number method
+// Sheets functions
+// get day of the week number. Week starting on Monday
+func (s *Sheet) GetDrawDayOfWeek() int64 {
+	switch s.DayOfDraw {
+	case "Monday":
+		return 0
+	case "Tuesday":
+		return 1
+	case "Wednesday":
+		return 2
+	case "Thursday":
+		return 3
+	case "Friday":
+		return 4
+	case "Saturday":
+		return 5
+	case "Sunday":
+		return 6
+	}
+	return 99
+}
 
 type DrawGames []struct {
 	Draw struct {
@@ -112,4 +137,16 @@ type PromotionalDraw struct {
 	WinningNumbers []string      `json:"winning_numbers"`
 	PrizePayouts   []PrizePayout `json:"prize_payouts"`
 	BonusNumber    interface{}   `json:"bonus_number"`
+}
+
+type FBAPIResponse struct {
+	Data []struct {
+		ID    string `json:"id"`
+		Name  string `json:"name"`
+		Hash  string `json:"hash"`
+		Title string `json:"title"`
+	} `json:"data"`
+	Paging struct {
+		Next string `json:"next"` // URL for the next page of results
+	} `json:"paging"`
 }

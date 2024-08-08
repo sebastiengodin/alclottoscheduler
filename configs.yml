@@ -5,7 +5,7 @@ settings:
 sheets:
   spreadsheetId: 1_N8gxDiZnmjYrLzzx2sBBU-RzC73fixp-6zrpaL_5Sg
   sheetName: ads
-  loadRange: A2:M
+  loadRange: A2:R
 
 sources:
   lottomaxURL: https://dsc.alc.ca/api/winning_numbers/latest/LottoMax
